@@ -12,8 +12,7 @@ import java.util.Map;
  * Created by lcj on 9/20/16.
  */
 public class RNEmulatorCheckModule extends ReactContextBaseJavaModule {
-    private boolean isEmulator() {
-        return (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
+    private static Boolean isEmulator = (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
             || Build.FINGERPRINT.startsWith("generic")
             || Build.FINGERPRINT.startsWith("unknown")
             || Build.HARDWARE.contains("goldfish")
@@ -29,8 +28,7 @@ public class RNEmulatorCheckModule extends ReactContextBaseJavaModule {
             || Build.PRODUCT.contains("vbox86p")
             || Build.PRODUCT.contains("emulator")
             || Build.PRODUCT.contains("simulator");
-    }
-
+   
     public RNEmulatorCheckModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
